@@ -20,7 +20,7 @@ namespace Hazel {
 	private:
 		bool OnWindowClose(WindowCloseEvent& e);
 		std::unique_ptr<Window> m_Window;
-		bool m_Running = true;
+		bool m_Running = true;	// set to false will allow this application to exit execution
 	};
 
 	// To be defined in CLIENT

@@ -6,6 +6,7 @@
 
 namespace Hazel {
 
+	// This class extend the base Window class by Microsoft Windows relevant code
 	class WindowsWindow : public Window
 	{
 	public:

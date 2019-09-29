@@ -14,6 +14,8 @@ namespace Hazel {
 		HZ_CORE_ERROR("GLFW Error ({0}): {1}", error, description);
 	}
 
+	// overrides the OS independent function with OS specific code
+	// it kind of injets itself
 	Window* Window::Create(const WindowProps& props)
 	{
 		return new WindowsWindow(props);
@@ -37,12 +39,13 @@ namespace Hazel {
 
 		HZ_CORE_INFO("Creating window {0} ({1}, {2})", props.Title, props.Width, props.Height);
 
-		if (!s_GLFWInitialized)	// initialize GLFW only once needed even if you want to create multiple windows
+		// initialize GLFW only once needed even if you want to create multiple windows
+		if (!s_GLFWInitialized)
 		{
 			// TODO: glfwTerminate on system shutdown
-			int success = glfwInit();
-			HZ_CORE_ASSERT(success, "Could not intialize GLFW!");	// This macro is only defined in debug, therefore you can run code only in debug build
-			glfwSetErrorCallback(GLFWErrorCallback);
+			int success = glfwInit();								// initialize the library
+			HZ_CORE_ASSERT(success, "Could not intialize GLFW!");
+			glfwSetErrorCallback(GLFWErrorCallback);				// print any error in console
 			s_GLFWInitialized = true;
 		}
 

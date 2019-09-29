@@ -22,6 +22,8 @@ namespace Hazel {
 	};
 
 	// Interface representing a desktop system based Window
+	// This is only a base class containing OS independent functionality
+	// Therefore no Window.cpp present
 	class HAZEL_API Window
 	{
 	public:
