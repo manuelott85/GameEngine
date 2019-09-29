@@ -21,6 +21,9 @@ project "Hazel"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
+	pchheader "hzpch.h"	-- specify the precompiled header
+	pchsource "Hazel/src/hzpch.cpp"	-- line needed for visual studio as it needs to create the precompiled header
+
 	files
 	{
 		"%{prj.name}/src/**.h",
