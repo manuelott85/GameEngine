@@ -23,6 +23,8 @@ include "Hazel/vendor/GLFW" -- include the premake file of GLFW
 include "Hazel/vendor/Glad"
 include "Hazel/vendor/imgui"
 
+startproject "Sandbox"
+
 project "Hazel"
 	location "Hazel"	-- put it into a folder called Hazel
 	kind "SharedLib"	-- defines it as a dll
